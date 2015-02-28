@@ -51,7 +51,7 @@
             "src/kernal/Illyas.php"
         ],
         "files": [
-            "src/kernal/Illyasinit.php",
+            "src/kernal/Illyasinit.php"
             
         ],
          "psr-4": {

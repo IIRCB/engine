@@ -48,14 +48,14 @@
     },
     "autoload": {
         "classmap": [
-            "src/kernel/Illyas.php"
+            "src/kernal/Illyas.php"
         ],
         "files": [
-            "src/kernel/Illyasinit.php",
+            "src/kernal/Illyasinit.php",
             
         ],
-        "psr-4": {
-            "Kernel\\": "src/kernal/",
+         "psr-4": {
+            "Kernal\\": "src/Kernal/"
         }
     },
     

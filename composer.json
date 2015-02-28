@@ -55,7 +55,7 @@
             
         ],
         "psr-4": {
-            "Kernel\\": "src/Kernel/",
+            "Kernel\\": "src/kernal/",
         }
     },
     

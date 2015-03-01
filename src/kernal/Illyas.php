@@ -1,4 +1,4 @@
-<?php 
+<?php namespace Kernal;
 /*
  *  Illyas Controller - base controller
  */

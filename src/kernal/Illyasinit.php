@@ -9,8 +9,6 @@ class Illiyasinit
 { 
     function __construct()
     {
-        echo "Illiyasinit";
-        //include 'Illyas.php';
         $parts = $_SERVER['REQUEST_URI'];
         if(DEBUG == true)
         {
@@ -84,8 +82,6 @@ class Illiyasinit
                                 $segments = explode("/", $parts);
                                 //echo $parts;
                         }
-
-
                 }
         }
         else
@@ -113,9 +109,7 @@ class Illiyasinit
             }
             if(MODULAR == true)
             {
-
                     $module = $segments[0]?$segments[0]:'';
-                    echo "Module name - ".$module;
                     $controller = $segments[1];
                     $action = $segments[2]?$segments[2]:'index';
             }
@@ -124,75 +118,61 @@ class Illiyasinit
                     $module = '';
                     $controller = $segments[0];
                     $action = $segments[1]?$segments[1]:'index';
-
-
             }
 
             $class = ucfirst($controller).'controller';
 
-                //function __autoload($class) 
-                //{
-           // global $module;
             $module = ucfirst($module);
 
             if (preg_match("/Model/i", $class))
             {
                     if(MODULAR == true)
                     {
-                    //$filename = "/../../box/modules/".$module."/model/".$class.".php";
                     $myclass = "Box\\Modules\\".$module."\\Model\\".$class;
-                    //new $myclass;
-                    print "<u>Loaded model:</u>". $myclass.'<br />';
                     }
                     else
                     {
-                    //$filename = "/../../box/model/".$class.".php";
                     $myclass = "Box\\Model\\".$class;    
                     }
-                            if(DEBUG == true)
-                            {
-                            print "<u>Loaded model:</u>". $myclass.'<br />';
-                            }
+                    if(DEBUG == true)
+                    {
+                    print "<u>Loaded model:</u>". $myclass.'<br />';
+                    }
 
             }
             elseif (preg_match("/Controller/i", $class))
             {
                     if(MODULAR == true)
                     {
-                    //$filename = "/../../box/modules/".$module."/controller/".$class.".php";
                     $myclass = "Box\\Modules\\".$module."\\Controller\\".$class;
                     }
                     else
                     {
-                    //$filename = "/../../box/controller/".$class.".php";
                     $myclass = "Box\\Controller\\".$class;    
                     }
-                            if(DEBUG == true)
-                            {
-                            print "<u>Loaded controller:</u>". $myclass.'<br />';
-                            }
+                    if(DEBUG == true)
+                    {
+                    print "<u>Loaded controller:</u>". $myclass.'<br />';
+                    }
 
             }
             elseif (preg_match("/View/i", $class))
             {
                     if(MODULAR == true)
                     {
-                    //$filename = "/../../box/modules/".$module."/view/".$class.".php";
                     $myclass = "Box\\Modules\\".$module."\\View\\".$class;
                     }
                     else
                     {
-                    //$filename = "/../../box/view/".$class.".php";
                     $myclass = "Box\\View\\".$class;
                     }
-                            if(DEBUG == true)
-                            {
-                            print "<u>Loaded view:</u>". $myclass.'<br />';
-                            }
-            //}
-            //include $filename;
+                    if(DEBUG == true)
+                    {
+                    print "<u>Loaded view:</u>". $myclass.'<br />';
+                    }
+            
             }
-            //$myclass = ucfirst($myclass);
+            
             $obj = new $myclass();
 
             $m1 = ucfirst($action).'Action';
